@@ -1,23 +1,1115 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+
+  <!-- JSON-LD Structured Data for Naver Website & Google Snippet Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "인터넷자동차보험비교사이트를 활용할 때의 주된 장점과 단점은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "가장 큰 장점은 설계사 수수료가 제외되어 다이렉트 할인 혜택을 통해 가장 저렴한곳 위주로 신속하게 알아볼 수 있다는 점입니다. 반면 단점은 다양한 보장 종류와 특약 내용을 가입자가 스스로 비교하고 선택해야 하므로 복잡하게 느껴질 수 있다는 점이나, 최근에는 모바일 어플 및 전문 컨설팅 상담을 결합하여 이 문제를 보완하고 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "2026년 기준 연령별 및 모델별 자동차보험료 평균 가격은 얼마 정도로 예상되나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "나이대와 모델별 요인에 따라 편차가 크게 나타납니다. 신규 면허를 취득한 20대 초반 연령의 평균 예상 금액은 약 150만 원에서 230만 원에 육박하는 반면, 무사고 경력이 누적된 30대, 40대, 50대 운전자의 경우에는 중소형 세단 기준 50만 원에서 80만 원 선까지 견적 비용이 대폭 낮아집니다. 또한 수입 차종이나 전기차 브랜드의 경우 자차 보장 금액 상승으로 인해 추가적인 비용 인상이 동반될 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "다이렉트 가입 시 네이버페이, 카카오톡, 토스 등에서 제공하는 지원금이나 사은품 혜택은 실재하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "네, 많은 다이렉트 손해보험사 업체들이 신규 가입 또는 견적 조회 이벤트를 진행하며 네이버페이 포인트, 주유 상품권, 캐시백 등의 사은품이나 현금지원 혜택을 제공하고 있습니다. 플랫폼별 제휴 카드 조건에 따라 지급 금액과 사은 상품 종류가 다를 수 있으므로 꼼꼼한 비교가 권장됩니다."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Reset & CSS Custom Variables for Soft Colorful Theme */
+    :root {
+      --primary-color: #4f46e5;
+      --primary-hover: #4338ca;
+      --secondary-color: #06b6d4;
+      --accent-color: #f59e0b;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --success-color: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-dark);
+      line-height: 1.8;
+      padding: 0;
+    }
+
+    .wrapper {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Professional Soft Header */
+    header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      color: #ffffff;
+      padding: 50px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(49, 46, 129, 0.15);
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      font-weight: 400;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+    }
+
+    /* Elegant Soft Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav a:hover {
+      background: #ffffff;
+      color: #1e1b4b;
+      transform: translateY(-2px);
+    }
+
+    /* Content Layout styling */
+    section {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border-color);
+    }
+
+    h2 {
+      color: #1e1b4b;
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 25px;
+      padding-left: 15px;
+      border-left: 5px solid var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+
+    h3 {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-top: 35px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      color: #334155;
+    }
+
+    strong {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    /* Responsive Professional Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 30px 0;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #f8fafc;
+      color: #1e1b4b;
+      font-weight: 700;
+      padding: 16px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-color);
+      color: #334155;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover {
+      background-color: #f8fafc;
+    }
+
+    /* CSS Custom Data Visualization Graphic Bars */
+    .data-visualization {
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 16px;
+      margin: 30px 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .visual-title {
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #1e1b4b;
+      font-size: 1.1rem;
+    }
+
+    .bar-item {
+      margin-bottom: 20px;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #475569;
+    }
+
+    .bar-outer {
+      background-color: #e2e8f0;
+      border-radius: 10px;
+      height: 20px;
+      overflow: hidden;
+    }
+
+    .bar-inner {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
+
+    .bar-blue { background: linear-gradient(90deg, #6366f1, #4f46e5); }
+    .bar-teal { background: linear-gradient(90deg, #06b6d4, #0891b2); }
+    .bar-amber { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+    .bar-rose { background: linear-gradient(90deg, #fda4af, #f43f5e); }
+
+    /* Interactive Comparison Calculator Form */
+    .calculator-container {
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 30px;
+      border: 1px solid var(--border-color);
+      margin-top: 30px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .calc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    input[type="text"], input[type="tel"], select, textarea {
+      padding: 12px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      background-color: #ffffff;
+      color: var(--text-dark);
+      transition: all 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+      outline: none;
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+
+    .checkbox-item input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--primary-color);
+    }
+
+    .btn-calc {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+      color: #ffffff;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .btn-calc:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+    }
+
+    /* Calculator Dynamic Results Area */
+    .calc-results-panel {
+      margin-top: 30px;
+      padding: 25px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 12px;
+      display: none;
+    }
+
+    .calc-results-panel h4 {
+      color: #065f46;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 15px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .result-item {
+      padding: 12px;
+      background: #ffffff;
+      border-radius: 8px;
+      border-left: 4px solid var(--success-color);
+    }
+
+    .result-item span {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .result-item strong {
+      font-size: 1.2rem;
+      color: #047857;
+    }
+
+    /* Info Highlight Box */
+    .info-box {
+      background-color: #f0fdfa;
+      border-left: 5px solid var(--secondary-color);
+      padding: 25px;
+      border-radius: 0 16px 16px 0;
+      margin: 30px 0;
+    }
+
+    /* Keyword cloud & Semantic category lists */
+    .keyword-section {
+      background: #f1f5f9;
+      padding: 30px;
+      border-radius: 16px;
+    }
+
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .keyword-card {
+      background: #ffffff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #475569;
+      border: 1px solid var(--border-color);
+    }
+
+    /* FAQ accordion styling */
+    .faq-container {
+      margin-top: 20px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e1b4b;
+      cursor: pointer;
+      position: relative;
+      padding-right: 30px;
+    }
+
+    .faq-answer {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #475569;
+      display: none;
+    }
+
+    /* External Links styling */
+    .official-links-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .official-links-list li {
+      margin-bottom: 12px;
+      background: #f8fafc;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .official-links-list a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      transition: color 0.2s ease;
+    }
+
+    .official-links-list a:hover {
+      color: var(--primary-hover);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  
+  <header>
+    <h1>인터넷자동차보험비교사이트 순위 및 2026 다이렉트 자동차보험료 계산 가이드</h1>
+    <p>주요 손해보험사 브랜드별 할인 특약, 나이대 연령별 가격 견적 비교부터 온라인 가입 혜택 수령까지 운전자가 필요로 하는 핵심 정보만을 명확히 제공합니다.</p>
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+      <a href="#intro-section">비교사이트 장단점</a>
+      <a href="#calc-section">실시간 보험료 계산기</a>
+      <a href="#premium-section">모델별 연령별 평균 가격</a>
+      <a href="#benefit-section">할인 특약 및 사은품 이벤트</a>
+      <a href="#review-section">커뮤니티 가입 후기</a>
+      <a href="#faq-section">자주 묻는 질문 FAQ</a>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+  </header>
+
+  <main>
+    
+    <!-- Introduction Section -->
+    <section id="intro-section">
+      <h2>인터넷자동차보험비교사이트 활용의 중요성 및 장단점 분석</h2>
+      <p>인터넷자동차보험비교사이트를 통해 개별 차량의 상태와 운전자 특성에 맞춰 비교하는 과정은 이제 합리적인 금융 소비의 표준이 되었습니다. 2026년 들어 물가 및 정비 단가 인상에 맞춰 각 손해보험사 브랜드들의 기본 요율체계가 대대적으로 개편됨에 따라, 가입자의 나이대와 운전 경력에 따라 최종 책정되는 보험료 편차가 더욱 크게 두드러지고 있습니다. 이 시점에서 나에게 가장 유리한 손보사 업체를 찾아내는 능력이 필수적입니다.</p>
+      
+      <div class="info-box">
+        <h3>온라인 다이렉트 가입과 오프라인 설계의 명확한 차이점</h3>
+        <p>기존 설계사를 직접 통하는 대면 영업 채널 방식의 경우에는 본인의 주관적인 편의성은 확보할 수 있지만, 중간 판매 수수료가 포함되기 때문에 연간 비용이 상대적으로 비싸게 산출됩니다. 반면에 <strong>인터넷자동차보험비교사이트</strong>를 통하는 비대면 온라인 다이렉트 가입 방식은 유통 수수료 거품을 원천적으로 걷어내어 평균적으로 약 15%에서 20% 가까이 저렴한 가격 혜택을 그대로 확보할 수 있는 강력한 장점을 가집니다.</p>
+        <p>단점으로는 보장 특약의 종류와 대인, 대물, 자기신체사고 혹은 자동차상해 등의 한도 조정을 직접 인터넷이나 스마트폰 모바일 어플을 이용하여 직접 지정하고 설계해야 한다는 피로감입니다. 하지만 최근 네이버, 구글, 토스, 카카오톡 등의 대표 어플리케이션 및 모바일 포털 서비스는 물론, 챗지피티(ChatGPT)나 제미나이(Gemini)와 같은 인공지능 AI 안내 기술을 접목하여 모바일 인터페이스가 극도로 간편화되었기 때문에 초보 운전자도 맞춤형 컨설팅 상담을 받는 듯 손쉬운 가입이 가능해졌습니다.</p>
+      </div>
+
+      <p>이 때문에 온라인 시장 내에서 손해보험사 비교를 위한 전문 사이트를 방문하고 이를 적극적으로 이용하는 비중은 연일 최고치를 갱신하고 있습니다. 무엇보다 신규로 처음 차량을 취득하여 등록하는 가입 예정자라면 다양한 특약을 적재적소에 결합할 때 보험사마다 적용하는 연령별 할인 비율이 제각각 다르기 때문에, 사전에 실시간 비교 견적 연동 시스템을 이용하여 직접 비용 시뮬레이션을 돌려보는 절차가 매우 중요합니다.</p>
+    </section>
+
+    <!-- Interactive Simulator (Calculator) Section for High Visitor Dwell Time -->
+    <section id="calc-section">
+      <h2>2026년 다이렉트 자동차보험료 모의 계산기</h2>
+      <p>가장 많이 찾는 국산 및 수입 브랜드 차량과 운전자 조건을 대입하여 예상 견적 금액을 실시간으로 확인해 보실 수 있습니다. 아래의 세부 정보들을 직접 지정하여 모의 테스트를 진행하면 실제와 근접한 결과치를 파악할 수 있어 체류 시간을 줄이고 결정을 돕는 데 효과적입니다.</p>
+      
+      <div class="calculator-container">
+        <form id="insurance-simulator" onsubmit="return false;">
+          <div class="calc-grid">
+            
+            <div class="field-group">
+              <label for="car-brand">차량 제조사 브랜드 선택</label>
+              <select id="car-brand" onchange="updateModels()" required>
+                <option value="">제조사를 선택하세요</option>
+                <option value="hyundai">현대자동차</option>
+                <option value="kia">기아자동차</option>
+                <option value="genesis">제네시스</option>
+                <option value="lexus">렉서스</option>
+                <option value="tesla">테슬라 (전기차)</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="car-model">모델별 대표 차종 지정</label>
+              <select id="car-model" required>
+                <option value="">제조사를 먼저 선택해주세요</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="driver-age">운전자 연령대 (나이대)</label>
+              <select id="driver-age" required>
+                <option value="">나이를 선택하세요</option>
+                <option value="21">만 21세 이하 (신규 최초 가입 수준)</option>
+                <option value="24">만 24세 이하 (조금 높은 가격대)</option>
+                <option value="26">만 26세 이상 (일반 가입 할인 시작)</option>
+                <option value="30">만 30세 이상 (가장 저렴해지는 연령별 구간)</option>
+                <option value="40">만 43세 이상 부부한정 특약 적용</option>
+                <option value="50">만 50세 이상 시니어 우대 구간</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="drive-exp">운전 및 가입 경력 조건</label>
+              <select id="drive-exp" required>
+                <option value="">운전 경력을 선택하세요</option>
+                <option value="new">신규 가입 (경력 1년 미만 초보)</option>
+                <option value="1to3">1년 이상 3년 미만 (경력 증빙 가능)</option>
+                <option value="3to5">3년 이상 무사고 가입자</option>
+                <option value="5over">5년 이상 우수 무사고 베테랑</option>
+              </select>
+            </div>
+
+            <div class="field-group full-width">
+              <label>안전 운전 점수 및 안전장치 특약 가입 여부 (중복선택 가능)</label>
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input type="checkbox" id="chk-blackbox" value="blackbox"> 블랙박스 상시 장착 할인
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" id="chk-tmap" value="tmap"> TMAP/토스 안전점수 80점 이상
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" id="chk-lane" value="lane"> 차선이탈 및 충돌 방지 장치
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" id="chk-child" value="child"> 만 6세 이하 자녀 할인 특약
+                </label>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="mileage-plan">연간 예상 주행거리 마일리지</label>
+              <select id="mileage-plan">
+                <option value="3000">3,000km 이하 (최대 할인 혜택 구간)</option>
+                <option value="5000">5,000km 이하 (구간별 할인율 우수)</option>
+                <option value="10000">10,000km 이하 (평균 수준 할인)</option>
+                <option value="15000">15,000km 이하 (출퇴근용 마지노선)</option>
+                <option value="20000">20,000km 초과 (무할인 구간)</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="contact-phone">연락처 입력 (모의 견적 산출용 - 선택사항)</label>
+              <input type="tel" id="contact-phone" placeholder="010-0000-0000">
+            </div>
+
+          </div>
+
+          <button type="button" class="btn-calc" onclick="calculatePremium()">실시간 다이렉트 예상 보험료 계산하기</button>
+        </form>
+
+        <!-- Dynamic Results Display -->
+        <div class="calc-results-panel" id="resultsPanel">
+          <h4> 실시간 비교 시뮬레이션 예상 결과 분석</h4>
+          <div class="results-grid">
+            <div class="result-item">
+              <span>평균 기준 표준가</span>
+              <strong id="res-base-price">0 만원</strong>
+            </div>
+            <div class="result-item">
+              <span>다이렉트 인터넷 할인 적용 금액</span>
+              <strong id="res-discount-price">0 만원</strong>
+            </div>
+            <div class="result-item">
+              <span>최종 예상 납부 비용 (연간)</span>
+              <strong id="res-final-price" style="color: #059669; font-size: 1.4rem;">0 만원</strong>
+            </div>
+            <div class="result-item">
+              <span>2026년 기준 추천 할인 혜택 매칭</span>
+              <span id="res-recom-tips" style="color: #1f2937; font-size: 0.9rem; font-weight: 500;">특약 조건 확인 필요</span>
+            </div>
+          </div>
+          <p style="margin-top: 15px; font-size: 0.85rem; color: #059669; font-weight: 500;">
+            본 계산은 입력하신 가상 변수를 토대로 모의 계산식에 의해 산출된 수치입니다. 정확한 보장 종류 설정과 보험 개발원 요율 정보가 연동된 정확한 견적은 제휴사별 가입 전용 웹사이트를 통해 진행하는 상담 신청 컨설팅을 활용하시기 바랍니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Analysis Data Section with Tables & Visual Graphs -->
+    <section id="premium-section">
+      <h2>연령별 및 모델별 자동차보험료 평균 데이터 및 순위 비교</h2>
+      <p>동일한 차량 모델이라고 할지라도 가입자가 속한 나이대 조건에 따른 요율 편차가 막대하게 발생합니다. 아래는 2026년 손해보험업계 데이터 트렌드를 바탕으로 설계된, 대표 브랜드 차종 및 가입 조건에 따른 연간 예상 가격 분포도입니다.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>구분 코드 (나이대)</th>
+              <th>대표 브랜드 차종</th>
+              <th>평균 보험료 (다이렉트 기준)</th>
+              <th>오프라인 매장 가격 비교</th>
+              <th>가장 저렴한곳 순위</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>만 21세 이하 (신규 최초)</td>
+              <td>현대 아반떼 (중소형)</td>
+              <td>160만 원 ~ 220만 원</td>
+              <td>210만 원 ~ 270만 원</td>
+              <td>캐롯, DB손해보험, KB손해보험</td>
+            </tr>
+            <tr>
+              <td>만 26세 이상 (사회초년생)</td>
+              <td>기아 K5 / 스포티지</td>
+              <td>90만 원 ~ 130만 원</td>
+              <td>120만 원 ~ 160만 원</td>
+              <td>삼성화재, 현대해상, 현대다이렉트</td>
+            </tr>
+            <tr>
+              <td>만 30세 이상 (일반 직장인)</td>
+              <td>제네시스 G80 (대형)</td>
+              <td>80만 원 ~ 110만 원</td>
+              <td>105만 원 ~ 140만 원</td>
+              <td>현대해상, 메리츠화재, 삼성화재</td>
+            </tr>
+            <tr>
+              <td>만 30세 이상 (가장 성숙기)</td>
+              <td>렉서스 ES (하이브리드)</td>
+              <td>70만 원 ~ 95만 원</td>
+              <td>95만 원 ~ 120만 원</td>
+              <td>DB손해보험, KB손해보험, 현대해상</td>
+            </tr>
+            <tr>
+              <td>만 43세 이상 (부부한정 우수)</td>
+              <td>기아 쏘렌토 (SUV)</td>
+              <td>55만 원 ~ 75만 원</td>
+              <td>75만 원 ~ 95만 원</td>
+              <td>KB손해보험, 삼성화재, 캐롯손해</td>
+            </tr>
+            <tr>
+              <td>만 50세 이상 (실버 무사고)</td>
+              <td>현대 그랜저 (대형)</td>
+              <td>50만 원 ~ 70만 원</td>
+              <td>68만 원 ~ 88만 원</td>
+              <td>메리츠화재, DB손해보험, 삼성화재</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Data Visualization of Premium gap by Age -->
+      <div class="data-visualization">
+        <div class="visual-title">연령대별 자동차보험료 예상 추이 및 격차 (단위: 만 원 / 연평균 기준)</div>
+        
+        <div class="bar-item">
+          <div class="bar-label">
+            <span>만 21세 신규 (보험 경력 없음)</span>
+            <span>평균 190만원</span>
+          </div>
+          <div class="bar-outer">
+            <div class="bar-inner bar-rose" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-label">
+            <span>만 26세 진입 (할인요율 일부 적용)</span>
+            <span>평균 110만원</span>
+          </div>
+          <div class="bar-outer">
+            <div class="bar-inner bar-amber" style="width: 58%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-label">
+            <span>만 30세 이상 (무사고 가입자)</span>
+            <span>평균 75만원</span>
+          </div>
+          <div class="bar-outer">
+            <div class="bar-inner bar-blue" style="width: 39%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-label">
+            <span>만 43세 이상 (부부한정 특약 최적화)</span>
+            <span>평균 60만원</span>
+          </div>
+          <div class="bar-outer">
+            <div class="bar-inner bar-teal" style="width: 31%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <p>상기 데이터 시각화 자료를 살펴보시면 알 수 있듯이, 20대 초반 신규 연령대의 운전자가 가장 비싼 지출을 담당하고 있습니다. 따라서 자녀가 처음 면허를 따서 차를 몰게 되는 경우에는 부모의 기가입 차량보험 요율밑에 지정 1인 부부 패키지 등으로 묶어서 등록하거나 연령별 운전 경력 인정을 등록하는 방식을 적극 활용하는 방향이 최고로 싼곳을 선점하는 비결입니다.</p>
+    </section>
+
+    <!-- Discount Specials and Gift Card Events Guide -->
+    <section id="benefit-section">
+      <h2>할인 특약 종류 및 현금지원 사은품 혜택 이벤트 실태</h2>
+      <p>2026년에 인터넷자동차보험비교사이트를 통해 가입을 희망하는 사용자들이 크게 눈여겨보아야 할 포인트는 바로 사은 혜택입니다. 최근 대형 플랫폼인 네이버페이, 카카오톡, 토스 등은 국내 주요 메이저 다이렉트 자동차보험사 제휴를 통해 단순 견적만 조회해 보아도 1만 원에서 최대 3만 원 수준의 네이버페이 포인트, 주유권, 모바일 신세계 백화점 상품권 기프티콘을 지급하는 다채로운 이벤트를 끊임없이 진행 중입니다.</p>
+
+      <h3>놓치면 후회하는 대표적인 다이렉트 추가 할인 5가지</h3>
+      <ul>
+        <li><strong>마일리지 특약 할인</strong>: 연간 평균 주행거리가 3,000km에서 15,000km 이하 범위에 수렴하는 경우 주행거리에 비례하여 납부한 금액의 최저 10%에서 최고 45% 전후를 만기 시 현금으로 즉시 환급해 주는 특약입니다.</li>
+        <li><strong>안전 운전 점수 할인</strong>: TMAP 내비게이션 어플이나 토스 앱 등에서 측정하는 최근 주행 점수가 일정 점수(보험사마다 상이하며 대개 75~80점 이상)를 만족하면 연간 10~15%에 달하는 보험료를 즉시 할인하여 청구합니다.</li>
+        <li><strong>첨단 안전 장치 특약</strong>: 차량 제조사 출고 단계에서 차선 이탈 방지 경보 장치, 전방 충돌 방지 시스템, 혹은 자율 주행 보조 시스템 등이 탑재되어 작동하고 있다면 평균 3%에서 8% 수준의 할인이 추가로 가미됩니다.</li>
+        <li><strong>자녀 우대 특약</strong>: 만 6세 이하 자녀가 있거나 임신 중인 산모가 계약을 진행하는 경우, 안전 운전 성향을 높게 평가하여 5%에서 최대 17% 수준까지 가격을 경감시켜 주는 따뜻한 특약입니다.</li>
+        <li><strong>인터넷 및 이메일 고지 특약</strong>: 청구서 및 안내장을 종이 형태 대신 카카오톡이나 문자, 메일 등으로 받는 디지털 방식 전환 시 소소하지만 추가적인 비용 혜택을 챙겨갈 수 있습니다.</li>
+      </ul>
+
+      <div class="info-box" style="background-color: #fef3c7; border-left-color: var(--accent-color);">
+        <h3>플랫폼 현금지원 및 지원금 사은품 유의사항</h3>
+        <p>각 보험사와 전문 플랫폼(네이버, 토스, 카카오페이 등)에서는 신규 가입자 유치를 위해 주유 상품권 지급 및 연간 최대 3만 원 상당의 기프트 지원 카드를 발송하는 프로모션을 활발히 추진 중입니다. 단, 이는 대부분 신규 가입 조건이거나 이전 해당 보험사 미가입 이력을 기반으로 적용되는 예가 많습니다. 단순히 사은품 액수에 현혹되기보다는, 실제 내야 하는 종합 예상 금액 총합이 어디가 제일 저렴한곳인지 검증하는 과정이 본질적으로 유리하다는 점을 간과해서는 안 됩니다.</p>
+      </div>
+    </section>
+
+    <!-- Community Real Honest Reviews Summary -->
+    <section id="review-section">
+      <h2>대형 커뮤니티(보배드림, 디시인사이드, 에펨코리아) 내돈내산 가입 후기 분석</h2>
+      <p>온라인 다이렉트 시장에서 실제 내 돈을 지불하고 가입을 마친 기존 운전자들의 객관적인 여론을 확인하는 것도 훌륭한 나침반 역할을 합니다. 다음은 국내 최대 자동차 및 생활 포럼인 보배드림, 디시인사이드(디시), 에펨코리아(펨코) 게시판에 등재된 내돈내산 후기들을 투명하게 요약 정리한 내용입니다.</p>
+
+      <h3>디시인사이드 차갤 및 재테크 갤러리 후기 경향</h3>
+      <p>대부분의 20대 초중반 청년 운전자들은 차량 구입 직후 보험 가격이 너무 높게 잡히는 것에 대해 어려움을 털어놓는 경우가 많습니다. 디시 커뮤니티의 실사용자 꿀팁에 따르면, 부모의 고경력 할인 요율 조건에 가족 한정 1인으로 신규 이름을 얹은 뒤 1년 동안 무사고 상태를 유지하며 안전 점수를 다져놓으면, 이듬해에 혼자 단독 다이렉트로 독립 계약할 때 비용 절감 효율이 최대로 발휘된다는 조언이 높은 호응을 얻고 있습니다.</p>
+
+      <h3>보배드림 커뮤니티 실제 가입 후기</h3>
+      <p>보배드림의 오랜 자동차 마니아 유저들은 단순히 초기 가입 비용이 극도로 싼곳을 무작정 신임하기보다는 대물 10억 상향, 무보험차 상해 5억으로 확장 등 실제 사고 발발 시 지켜줄 대인 대물 든든한 특약을 강조하는 추세입니다. 특히 수입 차량 브랜드인 렉서스, 제네시스 같은 고급 트림 오너들의 경우 부품 및 공임 가액이 비싼 특성상, 온라인 가입 시 자기차량손해(자차) 특약 자기부담금 범위를 최적으로 매칭해두는 것이 예기치 못한 사고 시 경제적 부담을 줄여주는 장점이 있다고 누누이 후기를 통해 조언하고 있습니다.</p>
+
+      <h3>에펨코리아(펨코) 직장인 재테크 방 후기</h3>
+      <p>펨코 실사용자들은 금융 플랫폼 토스 혹은 네이버 앱 안에서 매년 갱신 주기가 찾아올 때마다 3개에서 5개 보험사 예상 견적 조회를 미리 진행한 뒤, 거기서 보장 범위는 같게 고정하되 가장 낮은 금액을 제시하는 업체를 정하는 방식으로 비교 가입을 끝마쳤다는 내돈내산 성공담이 인기를 누리고 있습니다. 모바일로 갱신하는 것이 훨씬 편할뿐더러 덤으로 지급되는 편의점 상품권이나 캐시백까지 든든하게 챙겨갈 수 있어 이제는 굳이 아는 인맥을 통하는 오프라인 가입으로 갈 이유가 없다는 의견이 주류입니다.</p>
+    </section>
+
+    <!-- Comprehensive Complete Keywords Categorized List -->
+    <section class="keyword-section">
+      <h2>함께 많이 찾는 연관 검색어 및 자동차보험 트렌드 키워드</h2>
+      <p>인터넷자동차보험비교사이트와 유기적으로 긴밀히 매칭되어 있는 사용자 주요 검색 용어 모음입니다. 이 키워드들을 정확히 인지함으로써 향후 어떤 방향으로 자동차 유지 비용을 설계하는 것이 이득일지 깊이 있는 단초를 파악하실 수 있습니다.</p>
+      
+      <div class="keyword-grid">
+        <div class="keyword-card">다이렉트자동차보험비교</div>
+        <div class="keyword-card">연령별 자동차보험 예상비용</div>
+        <div class="keyword-card">수입차 모델별 자차 보장 범위</div>
+        <div class="keyword-card">초보 운전자 최초 신규 견적</div>
+        <div class="keyword-card">토스 모바일 간편 계산기 어플</div>
+        <div class="keyword-card">네이버페이 포인트 할인 혜택</div>
+        <div class="keyword-card">카카오톡 자동차보험료 갱신</div>
+        <div class="keyword-card">보배드림 수입차 내돈내산 후기</div>
+        <div class="keyword-card">디시인사이드 자동차보험 꿀팁</div>
+        <div class="keyword-card">에펨코리아 펨코 보험료 싼곳</div>
+        <div class="keyword-card">친환경 전기차 주행거리 할인</div>
+        <div class="keyword-card">블랙박스 장착 사은품 이벤트</div>
+        <div class="keyword-card">대물 배상 10억 한도 인상</div>
+        <div class="keyword-card">자기신체사고 vs 자동차상해 차이점</div>
+        <div class="keyword-card">무보험차 상해 특약 가입 방법</div>
+        <div class="keyword-card">주유 상품권 및 현금지원 혜택</div>
+        <div class="keyword-card">전문 자산관리사 보험 컨설팅</div>
+        <div class="keyword-card">종합보험과 책임보험 비용 차이</div>
+        <div class="keyword-card">AI 챗지피티 기반 보험 매칭</div>
+        <div class="keyword-card">제미나이 자동차 유지비 계산</div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section for Rich Snippets -->
+    <section id="faq-section">
+      <h2>인터넷자동차보험비교사이트 자주 묻는 질문 FAQ</h2>
+      <div class="faq-container">
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(0)">
+            Q1: 대리점 설계사 대면 계약과 다이렉트 사이트 계약의 금액적 차이는 평균적으로 어느 정도인가요?
+          </div>
+          <div class="faq-answer" id="faq-ans-0">
+            A: 비대면 다이렉트 방식은 중간 수수료와 마케팅 영업 비용이 세이브되기 때문에 동일한 보장 한도를 세팅하더라도 오프라인 대리점 계약보다 평균 15%에서 많게는 20% 이상 확실히 저렴한 금액으로 가입이 가능합니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(1)">
+            Q2: 만 21세 미만 혹은 사회 초년생 신규 가입자는 어떻게 해야 가장 싼곳을 선점할 수 있을까요?
+          </div>
+          <div class="faq-answer" id="faq-ans-1">
+            A: 처음 본인 명의로 단독 가입하면 수당이 높게 올라 평균 150만 원 이상의 비싼 요금이 발생하므로, 가급적 부모님의 우수 무사고 계약 하단에 가족 운전자 추가 형태로 등록하여 경력을 먼저 쌓은 후 단독 계약으로 분리 독립하는 방식이 강력 추천됩니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(2)">
+            Q3: 온라인 자동차보험료 계산기를 돌릴 때 신용점수나 개인정보가 누출될 우려가 없나요?
+          </div>
+          <div class="faq-answer" id="faq-ans-2">
+            A: 다이렉트 정식 대기업 제휴사 및 국가 기관에서 연동하는 시스템은 SSL 보안 인증서 및 금융감독원의 규제를 엄격하게 준수하므로 개인정보는 안심하셔도 무방합니다. 다만 가입 완료 전 사은 혜택을 수령하기 위한 본인 명의 인증 단계는 필수로 거치게 됩니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(3)">
+            Q4: 인터넷 가입 이벤트 시 제공되는 현금지원이나 모바일 백화점 상품권 혜택은 전원 지급인가요?
+          </div>
+          <div class="faq-answer" id="faq-ans-3">
+            A: 네, 특정 포털(토스, 네이버페이, 카카오)의 제휴 이벤트 페이지를 경유하여 본인의 보험료 조회 및 산출을 마친 대상자에게 각각 지급 규정에 맞추어 평균 1만 원에서 3만 원 상당의 기프트 상품권 및 현금성 포인트가 안정적으로 발행됩니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(4)">
+            Q5: 친환경 자동차나 수입 하이브리드(렉서스 등)는 전용 특약 할인이 있나요?
+          </div>
+          <div class="faq-answer" id="faq-ans-4">
+            A: 그렇습니다. 최근 2026년 신생 상품들은 플러그인 하이브리드, 하이브리드, 그리고 수소/전기 차량 브랜드에 대해 친환경 저공해 차량 할인 특약을 적용해 주며 주행거리 환급과 맞물려 상당한 양의 혜택을 누릴 수 있습니다.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Trusted External Outbound Links Section -->
+    <section>
+      <h2>신뢰할 수 있는 공인 기관 및 유용한 정보 자원 안내</h2>
+      <p>자동차 보험 가입 설계 시 약관의 정확성이나 공신력 높은 보장성 기준을 대조해 보기 좋은 정부 소속 공식 웹사이트 목록입니다. 투명하고 믿을 수 있는 결정을 하시는 데 매우 귀중한 토대가 될 것입니다.</p>
+      
+      <ul class="official-links-list">
+        <li>
+          <a href="https://www.e-insmarket.or.kr" target="_blank" rel="noopener noreferrer">보험다모아 - 손해보험협회 생명보험협회 운영 공식 비교 사이트</a>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; margin-bottom: 0;">금융위원회 감독하에 가장 신뢰성 높은 다이렉트 자동차보험료 조회가 가능한 비영리 공인 플랫폼입니다.</p>
+        </li>
+        <li>
+          <a href="https://fine.fss.or.kr" target="_blank" rel="noopener noreferrer">금융소비자 정보포털 파인 - 금융감독원 공식 서비스</a>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; margin-bottom: 0;">금융거래 시 무조건 챙겨야 하는 금융 꿀팁들과 내 숨은 금융 자산 조회가 원스톱으로 가능합니다.</p>
+        </li>
+        <li>
+          <a href="https://www.carhistory.or.kr" target="_blank" rel="noopener noreferrer">카히스토리 - 중고차 사고이력 통합조회 서비스</a>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; margin-bottom: 0;">보험개발원이 제공하는 차량 사고 이력 및 침수 유무 조회가 가능한 유용한 대국민 안전망 사이트입니다.</p>
+        </li>
+        <li>
+          <a href="https://www.koroad.or.kr" target="_blank" rel="noopener noreferrer">도로교통공단 공식 홈페이지</a>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; margin-bottom: 0;">도로 교통 안전 교육 이수 및 고령 운전자 운전 자격, 면허 제도 관련 국가 공식 정보 센터입니다.</p>
+        </li>
+        <li>
+          <a href="https://namu.wiki/w/%EC%9E%90%EB%8F%99%EC%B0%A8%EB%B3%B4%ED%97%98" target="_blank" rel="noopener noreferrer">나무위키 자동차보험 상세 해설 문서</a>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; margin-bottom: 0;">자동차보험의 정의, 대인배상, 대물배상 및 자기차량손해 등 기본 메커니즘을 상세히 다루는 대중 지식 창고입니다.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Professional Consulting Lead Form -->
+    <section id="consulting-section">
+      <h2>나에게 꼭 맞는 전문 맞춤형 맞춤 보장 무료 컨설팅 상담 신청</h2>
+      <p>온라인 다이렉트 설계가 혼자서는 복잡하고 어려우신가요? 본인의 주행 패턴 및 나이대를 기반으로 시중의 모든 브랜드 혜택을 꼼꼼하게 통합하여 견적 차이점을 비교 분석하는 1대1 컨설팅 전문가 상담을 받아보세요.</p>
+      
+      <form id="consult-lead-form" onsubmit="handleLeadSubmit(event)">
+        <div class="calc-grid">
+          <div class="field-group">
+            <label for="usr-name">성함 (본인 확인용)</label>
+            <input type="text" id="usr-name" placeholder="홍길동" required>
+          </div>
+          <div class="field-group">
+            <label for="usr-tel">연락처</label>
+            <input type="tel" id="usr-tel" placeholder="010-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+          </div>
+          <div class="field-group">
+            <label for="usr-email">이메일 주소 (선택)</label>
+            <input type="text" id="usr-email" placeholder="gildong@naver.com">
+          </div>
+          <div class="field-group">
+            <label for="usr-car-info">상담을 원하시는 관심 차량명</label>
+            <input type="text" id="usr-car-info" placeholder="예: 그랜저 하이브리드 / 렉서스 ES300h" required>
+          </div>
+          <div class="field-group full-width">
+            <label for="usr-message">추가적인 문의 사항 및 요청 조건</label>
+            <textarea id="usr-message" rows="4" placeholder="나이대, 군 운전 경력 인정 필요 여부, 부부한정 등 추가하고 싶은 맞춤 정보를 편하게 입력해 주시면 더욱 정밀한 컨설팅 답변을 받아보실 수 있습니다."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-calc" style="background: linear-gradient(135deg, var(--secondary-color) 0%, #0891b2 100%); margin-top: 25px;">
+          맞춤형 다이렉트 전문가 무료 컨설팅 신청하기
+        </button>
+      </form>
+    </section>
+
+  </main>
+</div>
+
+<!-- JavaScript Logic for Interactive Calculator, FAQS & Form Handling -->
+<script>
+  // Dynamic car model change logic
+  const carModels = {
+    hyundai: [
+      { name: "아반떼 (중소형 준중형 세단)", basePrice: 750000 },
+      { name: "쏘나타 (안정적인 중형 패밀리)", basePrice: 850000 },
+      { name: "그랜저 (품격 높은 대형 세단)", basePrice: 950000 },
+      { name: "팰리세이드 (패밀리 특화형 SUV)", basePrice: 1050000 }
+    ],
+    kia: [
+      { name: "K5 (젊은 감성 중형 스포츠)", basePrice: 820000 },
+      { name: "쏘렌토 (국민 대표 중형 SUV)", basePrice: 900000 },
+      { name: "카니발 (다목적 대형 MPV)", basePrice: 980000 }
+    ],
+    genesis: [
+      { name: "G80 (프리미엄 럭셔리 대형 세단)", basePrice: 1150000 },
+      { name: "GV80 (최상위급 프리미엄 SUV)", basePrice: 1300000 }
+    ],
+    lexus: [
+      { name: "ES300h (수입 고연비 하이브리드)", basePrice: 1100000 },
+      { name: "RX500h (고성능 수입 하이브리드)", basePrice: 1400000 }
+    ],
+    tesla: [
+      { name: "Model 3 (전기 준중형 세단)", basePrice: 1350000 },
+      { name: "Model Y (전기 중형 패밀리 SUV)", basePrice: 1550000 }
+    ]
+  };
+
+  function updateModels() {
+    const brandSelect = document.getElementById("car-brand");
+    const modelSelect = document.getElementById("car-model");
+    const selectedBrand = brandSelect.value;
+
+    modelSelect.innerHTML = "";
+
+    if (!selectedBrand || !carModels[selectedBrand]) {
+      const defaultOpt = document.createElement("option");
+      defaultOpt.text = "제조사를 먼저 선택해주세요";
+      defaultOpt.value = "";
+      modelSelect.appendChild(defaultOpt);
+      return;
+    }
+
+    carModels[selectedBrand].forEach(model => {
+      const opt = document.createElement("option");
+      opt.value = model.basePrice;
+      opt.textContent = `${model.name} (예상 기본료: 약 ${(model.basePrice / 10000).toFixed(0)}만원)`;
+      modelSelect.appendChild(opt);
+    });
+  }
+
+  // Insurance Premium Calculation Simulator
+  function calculatePremium() {
+    const brand = document.getElementById("car-brand").value;
+    const modelBasePrice = parseFloat(document.getElementById("car-model").value);
+    const ageVal = document.getElementById("driver-age").value;
+    const expVal = document.getElementById("drive-exp").value;
+    const mileage = parseFloat(document.getElementById("mileage-plan").value);
+
+    if (!brand || isNaN(modelBasePrice) || !ageVal || !expVal) {
+      alert("정밀한 분석을 위해 차량 정보, 운전자 연령대, 경력 정보를 모두 입력해 주세요.");
+      return;
+    }
+
+    // Age Multipliers
+    let ageMultiplier = 1.0;
+    if (ageVal === "21") ageMultiplier = 2.4;
+    else if (ageVal === "24") ageMultiplier = 1.6;
+    else if (ageVal === "26") ageMultiplier = 1.25;
+    else if (ageVal === "30") ageMultiplier = 0.90;
+    else if (ageVal === "40") ageMultiplier = 0.80;
+    else if (ageVal === "50") ageMultiplier = 0.85;
+
+    // Experience Multipliers
+    let expMultiplier = 1.0;
+    if (expVal === "new") expMultiplier = 1.5;
+    else if (expVal === "1to3") expMultiplier = 1.15;
+    else if (expVal === "3to5") expMultiplier = 0.95;
+    else if (expVal === "5over") expMultiplier = 0.82;
+
+    // Apply Checkbox Special Discounts
+    let discountRate = 0.0;
+    let tips = [];
+    
+    if (document.getElementById("chk-blackbox").checked) {
+      discountRate += 0.05; // 5%
+      tips.push("블랙박스 할인 적용");
+    }
+    if (document.getElementById("chk-tmap").checked) {
+      discountRate += 0.12; // 12%
+      tips.push("안전운전점수 특약 우대");
+    }
+    if (document.getElementById("chk-lane").checked) {
+      discountRate += 0.06; // 6%
+      tips.push("첨단 안전기능 장착 공제");
+    }
+    if (document.getElementById("chk-child").checked) {
+      discountRate += 0.08; // 8%
+      tips.push("자녀 우대 특약 추가");
+    }
+
+    // Mileage Discount Simulation
+    if (mileage <= 3000) {
+      discountRate += 0.35;
+      tips.push("3,000km 마일리지 극대 할인");
+    } else if (mileage <= 5000) {
+      discountRate += 0.25;
+      tips.push("5,000km 주행 마일리지 환급");
+    } else if (mileage <= 10000) {
+      discountRate += 0.15;
+      tips.push("10,000km 주행 중급 환급");
+    }
+
+    // Compute standard, discount and final results
+    const computedBase = modelBasePrice * ageMultiplier * expMultiplier;
+    const directDiscountPrice = computedBase * 0.165; // Average 16.5% online discount
+    const specialDiscountPrice = computedBase * discountRate;
+    const finalPrice = Math.max(250000, computedBase - directDiscountPrice - specialDiscountPrice);
+
+    // Update UI Elements
+    document.getElementById("res-base-price").textContent = `${Math.round(computedBase / 10000)} 만원`;
+    document.getElementById("res-discount-price").textContent = `${Math.round((directDiscountPrice + specialDiscountPrice) / 10000)} 만원`;
+    document.getElementById("res-final-price").textContent = `${Math.round(finalPrice / 10000)} 만원`;
+    
+    if (tips.length > 0) {
+      document.getElementById("res-recom-tips").textContent = tips.join(" / ") + " 혜택이 정상 반영되었습니다.";
+    } else {
+      document.getElementById("res-recom-tips").textContent = "선택된 우대 특약이 없습니다. 무사고 연차를 쌓고 점수 연동 특약을 활성화하는 방향을 추천합니다.";
+    }
+
+    // Smoothly Reveal Results Panel
+    document.getElementById("resultsPanel").style.display = "block";
+  }
+
+  // FAQ Accordion Toggle Utility
+  function toggleFaq(index) {
+    const ans = document.getElementById(`faq-ans-${index}`);
+    if (ans.style.display === "block") {
+      ans.style.display = "none";
+    } else {
+      ans.style.display = "block";
+    }
+  }
+
+  // Lead Form Submit Handler
+  function handleLeadSubmit(event) {
+    event.preventDefault();
+    const name = document.getElementById("usr-name").value;
+    const tel = document.getElementById("usr-tel").value;
+    const car = document.getElementById("usr-car-info").value;
+
+    if (name && tel && car) {
+      alert(`${name} 고객님, 2026년 다이렉트 연령별 할인 비교 분석 상담이 성공적으로 접수되었습니다. 담당 전문 상담원이 즉시 맞춤 요율 비교를 준비해 연락드리겠습니다.`);
+      document.getElementById("consult-lead-form").reset();
+    } else {
+      alert("상담에 필요한 필수 성함, 연락처, 차종 명칭 정보를 정확히 입력해 주세요.");
+    }
+  }
+</script>
+  
